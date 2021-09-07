@@ -18,6 +18,7 @@ class SerialGenerator:
     100
     """
     """
+    Pseudo code:
     init function
     - property to store starting number
     - counter = 0
@@ -27,14 +28,19 @@ class SerialGenerator:
         increment counter and return sum
 
     """
+
     def __init__(self, start):
         """ 
             initialize self.start to start
             count to 0
-        """
+        """ 
+        # 1. Docstrings can be higher level; e.g. returns x y z if it's a really simple method like that
+        #   1.a Key things are what it takes in and what it returns
         self.start = start
         self.counter = 0
     
+    # 2. need a __repr__ method too
+
     def generate(self):
         """
             add start to counter and return sum
