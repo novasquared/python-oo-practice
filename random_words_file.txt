@@ -1,5 +1,10 @@
+# animals
+
 cat
 dog
 porcupine
+
+# terms
+
 Mutable
 ordered

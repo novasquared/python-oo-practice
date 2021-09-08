@@ -9,7 +9,8 @@ class WordFinder:
     # probably use choice function from the random library?
 
     def __init__(self, word_file_path):
-        """Creates an empty list and calls word_list method"""
+        """Creates an empty list and calls word_list method and
+        prints out words read from file"""
         
         file = open(word_file_path)
         self.words = self.parse_words(file) # do an instance method that does this instead
@@ -24,8 +25,7 @@ class WordFinder:
 
     def parse_words(self, word_file):
         """Appends each word from text file to words list
-            Prints the number of words read from file
-        """
+        and strips out white space"""
         # previous attempts; did not work due to file reading errors
         # read each word in file
         # file = open(f"{word_file_path]}", "r")
@@ -44,3 +44,15 @@ class WordFinder:
     def random(self):
         """Prints a random word from read words list"""
         return choice(self.words)
+
+
+class SpecialWordFinder(WordFinder):
+    """Special Word Finder: finds random words from a dictionary, 
+    ignoring empty lines and comment lines."""
+
+    def parse_words(self, word_file):
+        """Overwrites parent function.  Appends each word from text file to words list
+        and strips out empty lines (\n) and comment lines"""
+        return [word.strip() for word in word_file 
+                    if not word.startswith("\n") 
+                    and not word.startswith("#")]
